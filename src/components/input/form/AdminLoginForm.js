@@ -1,7 +1,10 @@
 import { React, useState } from 'react'
 import './Form.css'
+import { useNavigate } from 'react-router-dom';
 export default function AdminLoginForm({onSubmit, credentials}) {
+    const navigate = useNavigate();
     const [inputs, setInputs] = useState({ username: "", password: "" })
+    const [showMessageBox, setShowMessageBox] = useState(false);
     const handleChange = (e) => {
         const key = e.target.name
         const value = e.target.value
@@ -10,12 +13,17 @@ export default function AdminLoginForm({onSubmit, credentials}) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        let result = onSubmit(inputs.username, inputs.password, credentials);
-        if (result) {
+        let validAdmin = onSubmit(inputs.username, inputs.password, credentials);
+        if (validAdmin) {
             console.log("admin login success") 
-            // Todo: redirect 
+            navigate("/admin/profile", {
+                state: {
+                  k1:'v1',
+                  k2:'v2'
+                }
+              })
         } else {
-            console.log('Wrong username or password')
+            setShowMessageBox(true)
         }
         
     }
@@ -24,6 +32,7 @@ export default function AdminLoginForm({onSubmit, credentials}) {
             <div className="content" >
 
                 <h2>Admin Login</h2>
+                {showMessageBox ? <div className="messageBox" > Invalid username or password. </div> : null}
                 <form onSubmit={handleSubmit} className="form">
                     <div className="inputBox">
                         <input type="text" value={inputs.username} name='username' onChange={handleChange} required /> <i>Username</i>

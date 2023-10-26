@@ -9,7 +9,7 @@ export default function Main() {
   return (
     <>
         <TopNavbar title="Bow online course registration" navs={["Home", "Logout"]} />
-        <LeftNavbar/>
+        <LeftNavbar user="student"/>
         <Outlet/>
 
 
