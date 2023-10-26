@@ -3,6 +3,6 @@ import React from 'react'
 
 export default function Profile() {
   return (
-    <div>Welcome </div>
+    <div>Profile.js~~ </div>
   )
 }

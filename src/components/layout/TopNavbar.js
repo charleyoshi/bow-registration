@@ -17,7 +17,7 @@ export const TopNavbar = ({ navs }) => {
                     } else if (nav == 'Admin'){
                         return <NavLink to="/admin/sign-in">{nav}</NavLink>
                     } else if (nav == 'Logout') {
-                        // TODO
+                        return <NavLink to="/">Logout</NavLink>
                     }
                 })}
             </nav>

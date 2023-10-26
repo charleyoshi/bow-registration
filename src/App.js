@@ -1,21 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
-import { TopNavbar } from './components/layout/TopNavbar';
 import { BrowserRouter, Route, RouterProvider, Routes, createBrowserRouter, createRoutesFromElements, useLocation } from 'react-router-dom'
 import { allCourses0 } from './data/course';
-
-// Pages
-import { Home } from './pages/Home';
-import AdminAuth from './pages/admin/Signin';
-import AdminMain from './pages/admin/AdminMain';
-
-// Student
-import StudentSignIn from './pages/student/Signin';
-import Student from './pages/student/Main';
-import Profile from './pages/student/Profile';
-import CourseSelection from './pages/student/Enroll';
-import Enroll from './pages/student/Enroll';
 import Views from './utilities/Views';
 
 

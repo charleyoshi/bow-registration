@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Enroll() {
   return (
-    <div>Enroll</div>
+    <div>edit Enroll.js</div>
   )
 }
