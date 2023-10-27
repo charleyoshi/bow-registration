@@ -1,11 +1,12 @@
 import { React, useState } from 'react'
 import './Form.css'
 import { Navigate, useNavigate } from 'react-router-dom'
+var idIncre = 10001;
 export default function StudentRegisterForm(props) {
     const navigate = useNavigate();
     const [showMessageBox, setShowMessageBox] = useState(false);
     const [message, setMessage] = useState();
-    const [newUser, setNewUser] = useState({ firstName: "",lastName:"", password: "", confirmPassword: "", email: "", dob: "", department: "", program: "" })
+    const [newUser, setNewUser] = useState({ firstName: "",lastName:"", username:"", password: "", confirmPassword: "", email: "", dob: "", department: "", program: "", studentID:idIncre })
     const handleChange = (e) => {
         const key = e.target.name
         const value = e.target.value
@@ -16,6 +17,8 @@ export default function StudentRegisterForm(props) {
         e.preventDefault()
         var check = props.onSubmit(newUser, props.credentials)
         if (check.success) {
+            setNewUser({ ...newUser, studentID: idIncre += 1})
+            console.log('WATCH this: ', newUser)
             props.successAction(newUser);
             navigate("/student/profile")
 
@@ -33,11 +36,15 @@ export default function StudentRegisterForm(props) {
                 {showMessageBox ? <div className="messageBox" > {message} </div> : null}
                 <form onSubmit={handleSubmit} className="form">
                     <div className="inputBox">
-                        <input type="text" value={newUser.firstName} name='username' onChange={handleChange} required /> <i>First Name</i>
+                        <input type="text" value={newUser.firstName} name='firstName' onChange={handleChange} required /> <i>First Name</i>
                     </div>
                     <div className="inputBox">
-                        <input type="text" value={newUser.lastName} name='username' onChange={handleChange} required /> <i>Last Name</i>
+                        <input type="text" value={newUser.lastName} name='lastName' onChange={handleChange} required /> <i>Last Name</i>
                     </div>
+                    <div className="inputBox">
+                        <input type="text" value={newUser.username} name='username' onChange={handleChange} required /> <i>Username</i>
+                    </div>
+                    
                     <div className="inputBox">
                         <input type='password' value={newUser.password} name='password' onChange={handleChange} required /> <i>Password</i><br />
                     </div>

@@ -1,5 +1,6 @@
 export const checkCredentials = (username, password, credentials) => {
-    console.log('Checking credentials...')
+    console.log('F1 Checking credentials...')
+    console.log(credentials)
     for (let c of credentials) {
         if (c.username == username && c.password == password) {
             return c
@@ -9,7 +10,7 @@ export const checkCredentials = (username, password, credentials) => {
 }
 
 export const checkRegister = (inputs, credentials) => {
-    console.log('checking register conditions...')
+    console.log('F2 Checking register conditions...')
     console.log(credentials)
     console.log(inputs)
     for (let c of credentials) {

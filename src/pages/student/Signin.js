@@ -3,15 +3,20 @@ import StudentLoginForm from '../../components/input/form/StudentLoginForm'
 import StudentRegisterForm from '../../components/input/form/StudentRegisterForm'
 import { checkCredentials, checkRegister } from '../../utilities/helper'
 import { TopNavbar } from '../../components/layout/TopNavbar'
-var studentCredentials = [{ username: "s1", password: "pw1", department:"SD" }, { username: "s2", password: "pw2", department:"SD" }]
+
+var studentCredentials = [{firstName: "f",lastName:"l",username:"u", password: "p", confirmPassword: "p", email: "e", dob: "d", department: "d", program: "p", studentID: "10000"}]
+
+
 
 export default function StudentSignIn() {
     const [showLogin, setShowLogin] = useState(true)
 
     const registerUser = (newUser) => {
         studentCredentials.push(newUser)
+        console.log('RegisterUserFn: Array now', studentCredentials)
         return newUser
     }
+
 
     return (
         <div>
