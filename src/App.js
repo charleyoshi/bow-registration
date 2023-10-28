@@ -87,7 +87,7 @@ function App() {
   return (
 
     <BrowserRouter>
-      <Views admins={admins} allCourses={allCourses} studentUsers={studentUsers} addStudentUser={addStudentUser} enroll={enroll} enrollments={enrollments} hasEnrolled={hasEnrolled} drop={drop} />
+      <Views addCourse={addCourse} admins={admins} allCourses={allCourses} studentUsers={studentUsers} addStudentUser={addStudentUser} enroll={enroll} enrollments={enrollments} hasEnrolled={hasEnrolled} drop={drop} />
 
       <footer> Hi this is footer</footer>
 

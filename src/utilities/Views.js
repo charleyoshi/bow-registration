@@ -11,6 +11,7 @@ import AdminMain from "../pages/admin/Main";
 import MyCourses from "../pages/student/MyCourses";
 import AddCourses from "../pages/student/AddCourses";
 import Search from "../pages/student/Search";
+import NewCourse from "../pages/admin/NewCourse";
 
 
 
@@ -28,9 +29,10 @@ export default function Views(props) {
           <Route index element={<Navigate to="profile" replace />} />
         </Route>
 
-        <Route path="admin" element={<AdminMain allCourses={props.allCourses} studentUsers={props.studentUsers} admins={props.admins}/>}>
+        <Route path="admin" element={<AdminMain addCourse={props.addCourse} allCourses={props.allCourses} studentUsers={props.studentUsers} admins={props.admins}/>}>
 
           <Route path="search" element={<Search />} />
+          <Route path="newcourse" element={<NewCourse />} />
           <Route index element={<Navigate to="search" replace />} />
         </Route>
 
