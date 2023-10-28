@@ -10,14 +10,14 @@ export const TopNavbar = ({ navs }) => {
             <nav>
                 {navs.map(nav => {
                     if (nav == 'Home') {
-                        return <NavLink to="/">{nav}</NavLink>
+                        return <NavLink key={nav} to="/">{nav}</NavLink>
                     }
                     else if (nav == 'Login'){
-                        return <NavLink to="/student/sign-in">{nav}</NavLink>
+                        return <NavLink key={nav} to="/student">{nav}</NavLink>
                     } else if (nav == 'Admin'){
-                        return <NavLink to="/admin/sign-in">{nav}</NavLink>
+                        return <NavLink key={nav} to="/admin">{nav}</NavLink>
                     } else if (nav == 'Logout') {
-                        return <NavLink to="/">Logout</NavLink>
+                        return <NavLink key={nav} to="/">Logout</NavLink>
                     }
                 })}
             </nav>

@@ -23,3 +23,4 @@ export const checkRegister = (inputs, credentials) => {
     }
     return { success: true, message: "" }
 }
+

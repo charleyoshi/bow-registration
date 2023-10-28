@@ -29,10 +29,8 @@ export default function StudentRegisterForm(props) {
     var check = props.onSubmit(newUser, props.credentials);
     if (check.success) {
       setNewUser({ ...newUser, studentID: (idIncre += 1) });
-      console.log("WATCH this: ", newUser);
-      props.successAction(newUser);
-
-      navigate(`/student/profile/${newUser.studentID}`);
+      props.addStudentUser(newUser);
+      props.loginUser(newUser.studentID)
     } else {
       setShowMessageBox(true);
       setMessage(check.message);
@@ -123,6 +121,7 @@ export default function StudentRegisterForm(props) {
               value={newUser.dob.department}
               name="department"
               onChange={handleChange}
+              required
             />{" "}
             <i>Department</i>
           </div>
@@ -133,6 +132,7 @@ export default function StudentRegisterForm(props) {
               value={newUser.dob.program}
               name="program"
               onChange={handleChange}
+              required
             />{" "}
             <i>Program</i>
           </div>

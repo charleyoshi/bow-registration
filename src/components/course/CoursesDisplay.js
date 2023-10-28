@@ -1,43 +1,60 @@
+import { Outlet } from 'react-router-dom';
 import './CourseDisplay.css';
 import { useState } from 'react';
-export const CoursesDisplay = ({ title, subtitle, courses }) => {
+
+export const CoursesDisplay = (props) => {
     const getCoursesByTerm = (term) => {
-        return courses.filter(c => c.term === term)
+        return props.courses.filter(c => c.term === term)
     }
     return (
         <div className="CourseDisplay">
-            <div className="title">{title}</div>
-            <div className="subtitle">{subtitle}</div>
-            <Term term={1} courses={getCoursesByTerm(1)}></Term>
-            <Term term={2} courses={getCoursesByTerm(2)}></Term>
-            <Term term={3} courses={getCoursesByTerm(3)}></Term>
-            <Term term={4} courses={getCoursesByTerm(4)}></Term>
+            <div className="title">{props.title}</div>
+            <div className="subtitle">{props.subtitle}</div>
+           
+            <Term term={1} courses={getCoursesByTerm(1)} emptyMsg={props.emptyMsg} isEnrollment={props.isEnrollment}
+                enroll={props.enroll} drop={props.drop} enrollments={props.enrollments} student={props.currentUserSID} showDropResult={props.showDropResult} />
+            <Term term={2} courses={getCoursesByTerm(2)} emptyMsg={props.emptyMsg} isEnrollment={props.isEnrollment}
+                enroll={props.enroll} drop={props.drop} enrollments={props.enrollments} student={props.currentUserSID} showDropResult={props.showDropResult}/>
+            <Term term={3} courses={getCoursesByTerm(3)} emptyMsg={props.emptyMsg} isEnrollment={props.isEnrollment}
+                enroll={props.enroll} drop={props.drop} enrollments={props.enrollments} student={props.currentUserSID} showDropResult={props.showDropResult}/>
+            <Term term={4} courses={getCoursesByTerm(4)} emptyMsg={props.emptyMsg} isEnrollment={props.isEnrollment}
+                enroll={props.enroll} drop={props.drop} enrollments={props.enrollments} student={props.currentUserSID} showDropResult={props.showDropResult}/>
         </div>
     )
 }
 
+// todo: delete all enrolls here
 
-const Term = ({ term, courses }) => {
+export const Term = ({ term, courses, emptyMsg, isEnrollment, enroll, drop, enrollments, student, showDropResult }) => {
     return (
         <div className="Term">
             <div className="termNumber">Term {term}</div>
-            <CourseList courses={courses} />
+            <CourseList student={student} courses={courses} emptyMsg={emptyMsg} isEnrollment={isEnrollment} 
+            enroll={enroll} drop={drop} enrollments={enrollments} showDropResult={showDropResult}/>
         </div>
     )
 }
 
 
-const CourseList = ({ courses }) => {
+const CourseList = ({ courses, emptyMsg, isEnrollment, enroll, drop, enrollments, student, showDropResult }) => {
     return (
         <div className="CourseList">
-            {courses.map(c => <CourseListItem course={c} key={c.courseCode} />)}
+            {courses.length === 0 ? <span style={{ fontSize: "smaller", color: "dimgrey" }}> {emptyMsg} </span> :
+
+                courses.map(c => <CourseListItem SID={student} isEnrollment={isEnrollment} enroll={enroll} drop={drop} 
+                enrollments={enrollments} course={c} key={c.courseCode} showDropResult={showDropResult}/>)}
         </div>
     )
 }
 
 
-const CourseListItem = ({ course }) => {
+export const CourseListItem = ({ SID, course, isEnrollment, drop, showDropResult }) => {
     const [open, setOpen] = useState(false)
+    const handleClick = () => {
+        var result = drop(SID, course)
+        // console.log(result)
+        showDropResult(result)
+    }
     return (
         <li className="CourseListItem" key={course.courseCode}>
             <div className="courseName" onClick={() => setOpen(!open)}>{course.courseName} </div>
@@ -52,9 +69,15 @@ const CourseListItem = ({ course }) => {
                             <p><b>Description: &nbsp;</b> <br />
                                 {course.courseDescription}{course.courseDescription}{course.courseDescription}{course.courseDescription}</p>
                         </div>
+                        {isEnrollment ?
+                            <div className="buttonRow">
+                                <button className="button-2" onClick={handleClick} > Drop </button>
+                            </div> : null}
+
                     </div>
                     : null
             }
+
         </li>
 
 

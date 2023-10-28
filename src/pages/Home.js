@@ -1,7 +1,7 @@
 import { CoursesDisplay } from '../components/course/CoursesDisplay';
 import { allCourses0 } from '../data/course'
 import { RightNavbar } from '../components/layout/RightNavbar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { TopNavbar } from '../components/layout/TopNavbar';
 
 export const Home = () => {
@@ -31,7 +31,7 @@ export const Home = () => {
 
             <div className="homePageRow">
                 <div className="col col-1">
-                    <CoursesDisplay title="Course Listing" subtitle="Below are terms' courses." courses={allCourses} />
+                    <CoursesDisplay title="Course Listing" subtitle="Below are terms' courses." courses={allCourses} emptyMsg="No results have been found."/>
                 </div>
                 <div className="col col-2">
                     <RightNavbar />

@@ -12,6 +12,8 @@ export var allCourses0 = [
         term: 1,
         courseCode: "Pr111",
         courseName: "Project Management 1",
+        startDate: "September 1",
+        endDate: "December 20",
         courseFee: 1867.60,
         courseDescription: "This course teaches how to manage a project."
     },
@@ -19,6 +21,8 @@ export var allCourses0 = [
         term: 1,
         courseCode: "C++111",
         courseName: "C++ Programming Fundamentals",
+        startDate: "September 1",
+        endDate: "December 20",
         courseFee: 1867.60,
         courseDescription: "This course teaches C++."
     },
@@ -26,6 +30,8 @@ export var allCourses0 = [
         term: 1,
         courseCode: "CompM1111",
         courseName: "Computer Maintenance",
+        startDate: "September 1",
+        endDate: "December 20",
         courseFee: 1867.60,
         courseDescription: "This course teaches Maintenance."
     },
@@ -33,6 +39,8 @@ export var allCourses0 = [
         term: 1,
         courseCode: "IS1111",
         courseName: "Information Security 1",
+        startDate: "September 1",
+        endDate: "December 20",
         courseFee: 1867.60,
         courseDescription: "This course teaches security."
     },
@@ -40,6 +48,8 @@ export var allCourses0 = [
         term: 2,
         courseCode: "Net222",
         courseName: "Networking",
+        startDate: "January 5",
+        endDate: "May 2",
         courseFee: 1867.60,
         courseDescription: "This course teaches how to make a network."
     },
@@ -47,6 +57,8 @@ export var allCourses0 = [
         term: 2,
         courseCode: "Web222",
         courseName: "Web technology",
+        startDate: "January 5",
+        endDate: "May 2",
         courseFee: 1867.60,
         courseDescription: "This course teaches Web Tech."
     },
@@ -54,6 +66,8 @@ export var allCourses0 = [
         term: 2,
         courseCode: "Pro222",
         courseName: "Project Management",
+        startDate: "January 5",
+        endDate: "May 2",
         courseFee: 1867.60,
         courseDescription: "This course teaches how to manage a project."
     },
@@ -61,6 +75,8 @@ export var allCourses0 = [
         term: 3,
         courseCode: "Pr333",
         courseName: "Advanced Project Management 1",
+        startDate: "September 1",
+        endDate: "December 20",
         courseFee: 1867.60,
         courseDescription: "This course teaches how to manage an advanced project."
     },
@@ -68,6 +84,8 @@ export var allCourses0 = [
         term: 3,
         courseCode: "C++333",
         courseName: "Advanced C++ Programming Fundamentals",
+        startDate: "September 1",
+        endDate: "December 20",
         courseFee: 1867.60,
         courseDescription: "This course teaches advanced  C++."
     },
@@ -75,6 +93,8 @@ export var allCourses0 = [
         term: 3,
         courseCode: "CompM333",
         courseName: "Advanced Computer Maintenance",
+        startDate: "September 1",
+        endDate: "December 20",
         courseFee: 1867.60,
         courseDescription: "This course teaches advanced maintenance."
     },
@@ -82,6 +102,8 @@ export var allCourses0 = [
         term: 3,
         courseCode: "IS333",
         courseName: "Advanced Information Security 1",
+        startDate: "September 1",
+        endDate: "December 20",
         courseFee: 1867.60,
         courseDescription: "This course teaches advanced security."
     },
@@ -89,6 +111,8 @@ export var allCourses0 = [
         term: 4,
         courseCode: "Net444",
         courseName: "Advanced Networking",
+        startDate: "January 5",
+        endDate: "May 2",
         courseFee: 1867.60,
         courseDescription: "This course teaches how to make advanced network."
     },
@@ -96,6 +120,8 @@ export var allCourses0 = [
         term: 4,
         courseCode: "Web444",
         courseName: "Advanced Web technology",
+        startDate: "January 5",
+        endDate: "May 2",
         courseFee: 1867.60,
         courseDescription: "This course teaches advanced Web Tech."
     },
@@ -103,6 +129,8 @@ export var allCourses0 = [
         term: 4,
         courseCode: "Pro444",
         courseName: "Advanced Project Management",
+        startDate: "January 5",
+        endDate: "May 2",
         courseFee: 1867.60,
         courseDescription: "This course teaches how to manage an advanced project."
     },

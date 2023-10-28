@@ -1,8 +1,8 @@
 import { React, useState } from 'react'
 import './Form.css'
 import { useNavigate } from 'react-router-dom';
-export default function AdminLoginForm({onSubmit, credentials}) {
-    const navigate = useNavigate();
+export default function AdminLoginForm({onSubmit, credentials, loginAdmin}) {
+
     const [inputs, setInputs] = useState({ username: "", password: "" })
     const [showMessageBox, setShowMessageBox] = useState(false);
     const handleChange = (e) => {
@@ -14,14 +14,10 @@ export default function AdminLoginForm({onSubmit, credentials}) {
     const handleSubmit = (e) => {
         e.preventDefault()
         let validAdmin = onSubmit(inputs.username, inputs.password, credentials);
+        
         if (validAdmin) {
-            console.log("admin login success") 
-            navigate("/admin/profile", {
-                state: {
-                  k1:'v1',
-                  k2:'v2'
-                }
-              })
+            console.log("admin login success. Your username: ", validAdmin.username)
+            loginAdmin(validAdmin.username)
         } else {
             setShowMessageBox(true)
         }
