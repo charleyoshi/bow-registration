@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './ViewStudents.css'
 import { useOutletContext } from 'react-router-dom'
 import StudentProfile from '../../components/admin/StudentProfile'
-import { PROGRAMS } from '../../data/course'
+import { PROGRAMS } from '../../data/data'
 
 export default function ViewStudents() {
     const contexts = useOutletContext()

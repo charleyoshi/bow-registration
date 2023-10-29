@@ -23,6 +23,7 @@ export default function LeftNavbar(props) {
                         <NavLink to="search">Search</NavLink>
                         <NavLink to="newcourse">Add New Course</NavLink>
                         <NavLink to="viewstudents">View Students</NavLink>
+                        <NavLink to="viewenquiries">View Enquiries</NavLink>
                         
                         
                         <NavLink to="/">Logout</NavLink>

@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import "./Form.css";
-import { DEPARTMENTS, PROGRAMS } from "../../../data/course";
+import { DEPARTMENTS, PROGRAMS } from "../../../data/data";
 
 var idIncre = 10001;
 export default function StudentRegisterForm(props) {
@@ -117,27 +117,25 @@ export default function StudentRegisterForm(props) {
           </div>
 
           <div className="inputBox">
-            <select name="department" onChange={handleChange}>
-            <option value="" selected disabled hidden>Please Select</option>
+            <select name="department" onChange={handleChange} value={newUser.department}>
+              <option value="" disabled hidden>Please Select</option>
               {DEPARTMENTS.map((D, i) => (
                 (i !== 0) ?
-                  <option value={D} disabled> {D}</option>
-                  : <option value={D} > {D}</option>
+                  <option key={D} value={D} disabled> {D}</option>
+                  : <option key={D} value={D} > {D}</option>
               ))}
             </select>
             <i>Department</i>
           </div>
 
           <div className="inputBox">
-            <select name="program" onChange={handleChange}>
-              <option value="" selected disabled hidden>Please Select</option>
-              {PROGRAMS.map((P) => <option value={P} > {P}</option>)}
+            <select name="program" onChange={handleChange} value={newUser.program}>
+              <option value="" disabled hidden>Please Select</option>
+              {PROGRAMS.map((P) => <option key={P} value={P} > {P}</option>)}
             </select>
             <i>Program</i>
           </div>
-          <div className="links">
-            <a href="#">Forgot Password</a>
-          </div>
+          
           <div className="inputBox">
             <button className="submitButton" type="submit">
               Create Account

@@ -3,7 +3,8 @@ import { useOutletContext } from "react-router-dom";
 
 export default function Profile() {
 
-  const [studentUsers, currentUserSID, allCourses, enroll, enrollments, hasEnrolled, drop]  = useOutletContext();
+  
+  const [isStudent, studentUsers, currentUserSID, allCourses, enroll, enrollments, hasEnrolled, drop] = useOutletContext();
   const [user] = studentUsers.filter(u => u.studentID === currentUserSID)
 
 

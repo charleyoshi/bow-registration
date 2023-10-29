@@ -19,7 +19,6 @@ export default function NewCourseForm(props) {
         const key = e.target.name;
         let value = e.target.value;
         if (key === 'term' || key === "courseFee") {
-            console.log('key is number')
             value = parseInt(value)
         }
 
@@ -28,16 +27,11 @@ export default function NewCourseForm(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         var check = checkNewCourse(newCourse, props.existingCourses);
-
         if (check.success) {
-            console.log('can add: ', newCourse)
             props.addCourse(newCourse);
             setNewCourse(formReset)
             setMsgBoxClass("success")
-
         } else {
-            setShowMessageBox(true);
-            setMessage(check.message);
             setMsgBoxClass("failure")
         }
         setMessage(check.message);
@@ -46,9 +40,9 @@ export default function NewCourseForm(props) {
     return (
         <div className="NewCourseForm">
             <div className="content">
-                <br/>
+                <br />
                 <h2>Add a new course</h2>
-                {showMessageBox ? <div className={`messageBox ${msgBoxClass}`}> {message} </div> : null}
+                {showMessageBox ? <div className={`content messageBox ${msgBoxClass}`}> {message} </div> : null}
                 <form onSubmit={handleSubmit} className="form">
                     <div className="inputBox">
                         <input
@@ -137,7 +131,7 @@ export default function NewCourseForm(props) {
                         </button>
                     </div>
                 </form>
-                <br/>
+                <br />
             </div>
         </div>
     )

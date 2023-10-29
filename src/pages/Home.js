@@ -1,5 +1,5 @@
 import { CoursesDisplay } from '../components/course/CoursesDisplay';
-import { allCourses0 } from '../data/course'
+import { allCourses0 } from '../data/data'
 import { RightNavbar } from '../components/layout/RightNavbar';
 import { useEffect, useRef, useState } from 'react';
 import { TopNavbar } from '../components/layout/TopNavbar';

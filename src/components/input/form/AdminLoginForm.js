@@ -37,9 +37,6 @@ export default function AdminLoginForm({onSubmit, credentials, loginAdmin}) {
                         <input type='password' value={inputs.password} name='password' onChange={handleChange} required /> <i>Password</i><br />
                     </div>
 
-                    {/* <div className="links">
-                        <a href="#">Forgot Password</a>
-                    </div> */}
                     <div className="inputBox">
                         <button className="submitButton" type='submit'>Login</button>
                     </div>

@@ -7,7 +7,7 @@ export var importantDates = [
     { term: 4, start: "January 5", end: "May 2" },
 ]
 export const DEPARTMENTS = ["Software Development", "Business", "Emtertainment"];
-export const PROGRAMS = ["Diploma", "Post-Diploma", "Certificate (3-months)" ,"Certificate (6-months)"]; 
+export const PROGRAMS = ["Diploma", "Post-Diploma", "Certificate (3-months)", "Certificate (6-months)"];
 
 export var allCourses0 = [
     {
@@ -141,12 +141,57 @@ export var allCourses0 = [
 
 
 
+export const studentUsers0 = [{
+    firstName: "Ron", lastName: "Swanson", password: "ron", username: "ron", confirmPassword: "",
+    email: "ronswanson@school.com", dob: "1993-2-4", department: "Software Development", program: "Diploma", studentID: 10000
+},
+{
+    firstName: "Leslie", lastName: "Knope", password: "leslie", username: "leslie", confirmPassword: "",
+    email: "leslieknope@school.com", dob: "1995-8-15", department: "Software Development", program: "Certificate (3-months)", studentID: 9999
+},
+{
+    firstName: "Tom", lastName: "Haverford", password: "tom", username: "tom", confirmPassword: "",
+    email: "tom@school.com", dob: "1994-12-24", department: "Software Development", program: "Diploma", studentID: 9998
+},
+
+{
+    firstName: "Ann", lastName: "Perkins", password: "ann", username: "ann", confirmPassword: "",
+    email: "annperkins@school.com", dob: "1992-5-30", department: "Software Development", program: "Post-Diploma", studentID: 9997
+},
+
+{
+    firstName: "Chris", lastName: "Traeger", password: "chris", username: "chris", confirmPassword: "",
+    email: "chris@school.com", dob: "1991-1-28", department: "Software Development", program: "Certificate (6-months)", studentID: 9996
+},
+{
+    firstName: "April", lastName: "Ludgate", password: "april", username: "april", confirmPassword: "",
+    email: "aprilludgate@school.com", dob: "1996-3-1", department: "Software Development", program: "Certificate (6-months)", studentID: 9995
+},
+{
+    firstName: "Andy", lastName: "Dwyer", password: "andy", username: "andy", confirmPassword: "",
+    email: "andydwyer@school.com", dob: "1993-7-6", department: "Software Development", program: "Post-Diploma", studentID: 9994
+},
+{
+    firstName: "Ben", lastName: "Wyatt", password: "ben", username: "ben", confirmPassword: "",
+    email: "benwyatt@school.com", dob: "1989-2-19", department: "Software Development", program: "Certificate (3-months)", studentID: 9993
+},
+]
+
+export const admins = [{ username: "adminJerry", password: "adM1n" }, { username: "adminBadboy", password: "adM!n" }]
+
+export const enrollments0 = [
+    { studentID: 9998, term: 1, courseCode: "Pr111" }, 
+    { studentID: 9998, term: 1, courseCode: "C++111" }, 
+    { studentID: 9998, term: 4, courseCode: "Pro444" },
+]
 
 
-// const a = COURSES.filter(course =>
-//     course.term == 2
-// );
+export const enquiries0 = [
+    {studentID: '9998', subject: 'Hi', message: 'hi', phone: '432'},
+    {studentID: '9996', subject: '2', message: '3', phone: '4'},
+    {studentID: '9998', subject: '2', message: '3', phone: '4'},
+    {studentID: '2000', subject: '2', message: '3', phone: '4'},
+    
+    
+]
 
-
-
-// console.log(a)

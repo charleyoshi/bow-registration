@@ -1,0 +1,10 @@
+.ViewEnquiries {
+    background-color: var(--color-1-navy);
+    padding: 18px 0;
+    color: white;
+    
+}
+
+.program-header {
+    font-family: var(--font-roboto);
+}

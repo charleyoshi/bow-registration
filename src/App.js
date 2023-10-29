@@ -2,47 +2,22 @@ import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, RouterProvider, Routes, createBrowserRouter, createRoutesFromElements, useLocation } from 'react-router-dom'
-import { allCourses0 } from './data/course';
+import { admins, allCourses0, enquiries0, enrollments0, studentUsers0 } from './data/data';
 import Views from './utilities/Views';
+import Footer from './components/layout/Footer';
 
 
-var studentUsers0 = [{
-  firstName: "Jerry", lastName: "Jam", password: "p", username: "jerry", confirmPassword: "",
-  email: "e", dob: "d", department: "d", program: "Diploma", studentID: 10000
-},
-{
-  firstName: "Leslie", lastName: "Knope", password: "a", username: "leslie", confirmPassword: "",
-  email: "e", dob: "d", department: "d", program: "Certificate (3-months)", studentID: 9999
-},
-{
-  firstName: "Tom", lastName: "Haverford", password: "tom", username: "tom", confirmPassword: "",
-  email: "tom@tom.com", dob: "d", department: "d", program: "Diploma", studentID: 9998
-},
 
-{
-  firstName: "Ann", lastName: "Perkins", password: "ann", username: "ann", confirmPassword: "",
-  email: "annnnnn", dob: "d", department: "d", program: "Post-Diploma", studentID: 9997
-},
-
-{
-  firstName: "Chris", lastName: "Traeger", password: "chris", username: "chris", confirmPassword: "",
-  email: "chris.com", dob: "d", department: "d", program: "Certificate (6-months)", studentID: 9996
-},
-
-
-]
-
-const admins = [{ username: "adminJerry", password: "adM1n" }, { username: "adminBadboy", password: "adM!n" }]
 
 function App() {
-  const [enrollments, setEnrollments] = useState([{studentID: 9998, term: 1, courseCode: "Pr111"}, {studentID: 9998, term: 1, courseCode: "C++111"},{studentID: 9998, term: 4, courseCode: "Pro444"},])
+  const [enquiries, setEnquiries] = useState(enquiries0)
+  const [enrollments, setEnrollments] = useState(enrollments0)
   const [allCourses, setAllCourses] = useState(allCourses0);
   const [studentUsers, setStudentUsers] = useState(studentUsers0);
   const [counters, setCounters] = useState([{ count: 0 }, { count: 0 }, { count: 0 }]);
 
   const addCourse = (newCourse) => {
     setAllCourses(allCourses => [...allCourses, newCourse])
-    console.log('all', allCourses)
   }
 
   const deleteCourse = (courseCode) => {
@@ -108,12 +83,21 @@ function App() {
     } return false
   }
 
+  const sendEnquiry = (inquiry) => {
+    try {
+      setEnquiries([...enquiries, inquiry])
+      return { success: true, message: "Inquiry form has been successfully sent." }
+    } catch (e) {
+      return { success: false, message: "Inquiry form cannot be sent." }
+    }
+
+  }
   return (
 
     <BrowserRouter>
-      <Views addCourse={addCourse} admins={admins} allCourses={allCourses} studentUsers={studentUsers} addStudentUser={addStudentUser} enroll={enroll} enrollments={enrollments} hasEnrolled={hasEnrolled} drop={drop} deleteCourse={deleteCourse} />
+      <Views addCourse={addCourse} admins={admins} allCourses={allCourses} studentUsers={studentUsers} addStudentUser={addStudentUser} enroll={enroll} enrollments={enrollments} hasEnrolled={hasEnrolled} drop={drop} deleteCourse={deleteCourse} sendEnquiry={sendEnquiry} enquiries={enquiries} />
 
-      <footer> Hi this is footer</footer>
+      <Footer/>
 
     </BrowserRouter>
 

@@ -14,7 +14,7 @@ export default function Search() {
     deleteCourse = contexts[4]
   }
   else { // student's outlet
-    allCourses = contexts[2]
+    allCourses = contexts[3]
   }
 
 

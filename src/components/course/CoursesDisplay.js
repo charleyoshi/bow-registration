@@ -89,10 +89,14 @@ export const CourseListItem = (props) => {
                         <div className="content-inner">
                             <p><b>Course Code:&nbsp;</b>
                                 {props.course.courseCode}</p>
+                            <p><b>Start Date:&nbsp;</b>
+                                {props.course.startDate}</p>
+                            <p><b>End Date:&nbsp;</b>
+                                {props.course.endDate}</p>
                             <p><b>Fee:&nbsp;</b>
                                 {props.course.courseFee}</p>
                             <p><b>Description: &nbsp;</b> <br />
-                                {props.course.courseDescription}{props.course.courseDescription}{props.course.courseDescription}{props.course.courseDescription}</p>
+                                {props.course.courseDescription}</p>
                         </div>
                         {props.isEnrollment ?
                             <div className="buttonRow">

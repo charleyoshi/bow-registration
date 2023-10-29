@@ -1,0 +1,6 @@
+.Footer {
+    padding: 54px 0;
+    border-top: 3px var(--color-4-orange) solid;
+    height: 50px;
+    bottom: 0;
+} 

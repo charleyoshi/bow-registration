@@ -28,15 +28,11 @@ export default function StudentProfile(props) {
                         <h2>Enrolled Courses
                         </h2>
                         <br />
-                        <CoursesDisplay forAdmin={true} courses={coursesByUser} emptyMsg="No matched results." />
+                        <CoursesDisplay forAdmin={false} courses={coursesByUser} emptyMsg="No matched results." />
                     </> : null}
 
 
             </div>
-
-
-
-
 
         </div>
     )

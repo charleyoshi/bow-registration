@@ -1,6 +1,8 @@
 /* Variation: 1. Login Form, 2. Register Form, 3. Admin Login Form */
 
-
+.inquiry-form-container {
+    background-color: aquamarine;
+}
 .StudentRegisterForm,
 .AdminLoginForm,
 .StudentLoginForm,
@@ -172,6 +174,17 @@ button:active {
     color: darkred;
     background-color: pink;
     border: 2px darkred solid;
+}
+
+
+/* Inquiry Form */
+.inquiry-form-container .checkboxRow  {
+    padding: 18px 0;
+}
+
+.inquiry-form-container form input.checkbox {
+    transform: scale(2);
+    
 }
 @media (max-width: 900px) {
     span {

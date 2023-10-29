@@ -1,7 +1,7 @@
 .ViewStudents .btn-group{
     padding: 28px 0;
     background-color: antiquewhite;
-    /* padding: 48px; */
+    width: 100%;
 }
 
 .ViewStudents .program-header {
