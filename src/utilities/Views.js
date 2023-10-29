@@ -13,7 +13,7 @@ import AddCourses from "../pages/student/AddCourses";
 import Search from "../pages/student/Search";
 import NewCourse from "../pages/admin/NewCourse";
 
-
+import StudentInquiryForm from "../pages/admin/Enquire";
 
 export default function Views(props) {
   return (
@@ -21,7 +21,22 @@ export default function Views(props) {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route path="student" element={<StudentMain allCourses={props.allCourses} studentUsers={props.studentUsers} addStudentUser={props.addStudentUser} enroll={props.enroll} enrollments={props.enrollments} hasEnrolled={props.hasEnrolled} drop={props.drop}/>}>
+        <Route path="enquire" element={<StudentInquiryForm />} />
+
+        <Route
+          path="student"
+          element={
+            <StudentMain
+              allCourses={props.allCourses}
+              studentUsers={props.studentUsers}
+              addStudentUser={props.addStudentUser}
+              enroll={props.enroll}
+              enrollments={props.enrollments}
+              hasEnrolled={props.hasEnrolled}
+              drop={props.drop}
+            />
+          }
+        >
           <Route path="profile" element={<Profile />} />
           <Route path="search" element={<Search />} />
           <Route path="mycourses" element={<MyCourses />} />
@@ -29,8 +44,17 @@ export default function Views(props) {
           <Route index element={<Navigate to="profile" replace />} />
         </Route>
 
-        <Route path="admin" element={<AdminMain addCourse={props.addCourse} allCourses={props.allCourses} studentUsers={props.studentUsers} admins={props.admins}/>}>
-
+        <Route
+          path="admin"
+          element={
+            <AdminMain
+              addCourse={props.addCourse}
+              allCourses={props.allCourses}
+              studentUsers={props.studentUsers}
+              admins={props.admins}
+            />
+          }
+        >
           <Route path="search" element={<Search />} />
           <Route path="newcourse" element={<NewCourse />} />
           <Route index element={<Navigate to="search" replace />} />

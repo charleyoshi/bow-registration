@@ -3,6 +3,8 @@ import "./Form.css";
 import { Navigate, useNavigate } from "react-router-dom";
 var idIncre = 10001;
 export default function StudentRegisterForm(props) {
+  const depertments = ["Software Development", "Business", "Emtertainment"];
+  const programs = ["Diploma", "Post-Diploma", "Certificate"];
   const navigate = useNavigate();
   const [showMessageBox, setShowMessageBox] = useState(false);
   const [message, setMessage] = useState();
@@ -14,8 +16,8 @@ export default function StudentRegisterForm(props) {
     confirmPassword: "",
     email: "",
     dob: "",
-    department: "",
-    program: "",
+    department: depertments[0],
+    program: programs[0],
     studentID: idIncre,
   });
   const handleChange = (e) => {
@@ -30,12 +32,23 @@ export default function StudentRegisterForm(props) {
     if (check.success) {
       setNewUser({ ...newUser, studentID: (idIncre += 1) });
       props.addStudentUser(newUser);
-      props.loginUser(newUser.studentID)
+      props.loginUser(newUser.studentID);
     } else {
       setShowMessageBox(true);
       setMessage(check.message);
     }
   };
+
+  const handleDepartmentChange = (e) => {
+    const key = e.target.name;
+    const value = e.target.value;
+    setNewUser({ ...newUser, [key]: value });
+  };
+
+  const handleProgramChange = (e) => {
+    setNewUser({ ...newUser, program: e.target.value });
+  };
+
   return (
     <div className="StudentRegisterForm">
       <div className="content">
@@ -108,33 +121,42 @@ export default function StudentRegisterForm(props) {
           </div>
           <div className="inputBox">
             <input
-              type="text"
+              type="date"
               value={newUser.dob.year}
               name="dob"
               onChange={handleChange}
             />{" "}
-            <i>YYYY-MM-DD</i>
+            <i>Date Of Birth</i>
           </div>
+          <p className="dropdown">Department</p>
           <div className="inputBox">
-            <input
+            <select
+              className="inputBox"
               type="text"
               value={newUser.dob.department}
               name="department"
-              onChange={handleChange}
+              onChange={handleDepartmentChange}
               required
-            />{" "}
-            <i>Department</i>
+            >
+              {depertments.map((department) => (
+                <option value={department}> {department}</option>
+              ))}
+            </select>
           </div>
-
+          <p className="dropdown">Program</p>
           <div className="inputBox">
-            <input
+            <select
+              className="inputBox"
               type="text"
               value={newUser.dob.program}
               name="program"
-              onChange={handleChange}
+              onChange={handleProgramChange}
               required
-            />{" "}
-            <i>Program</i>
+            >
+              {programs.map((program) => (
+                <option value={program}> {program}</option>
+              ))}
+            </select>
           </div>
           <div className="links">
             <a href="#">Forgot Password</a>
