@@ -10,8 +10,10 @@ import AdminMain from "../pages/admin/Main";
 
 import MyCourses from "../pages/student/MyCourses";
 import AddCourses from "../pages/student/AddCourses";
-import Search from "../pages/student/Search";
+import Search from "../pages/Search";
 import NewCourse from "../pages/admin/NewCourse";
+import ViewStudents from "../pages/admin/ViewStudents";
+import StudentInquiryForm from "../pages/student/Enquire";
 
 
 
@@ -19,20 +21,24 @@ export default function Views(props) {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route index path="/" element={<Home />} />
+        <Route path="enquire" element={<StudentInquiryForm />} />
 
         <Route path="student" element={<StudentMain allCourses={props.allCourses} studentUsers={props.studentUsers} addStudentUser={props.addStudentUser} enroll={props.enroll} enrollments={props.enrollments} hasEnrolled={props.hasEnrolled} drop={props.drop}/>}>
           <Route path="profile" element={<Profile />} />
           <Route path="search" element={<Search />} />
           <Route path="mycourses" element={<MyCourses />} />
           <Route path="addcourses" element={<AddCourses />} />
+          <Route path="enquire" element={<StudentInquiryForm />} />
           <Route index element={<Navigate to="profile" replace />} />
         </Route>
 
-        <Route path="admin" element={<AdminMain addCourse={props.addCourse} allCourses={props.allCourses} studentUsers={props.studentUsers} admins={props.admins}/>}>
+        <Route path="admin" element={<AdminMain deleteCourse={props.deleteCourse} addCourse={props.addCourse} allCourses={props.allCourses} studentUsers={props.studentUsers} admins={props.admins} enrollments={props.enrollments}/>}>
 
           <Route path="search" element={<Search />} />
           <Route path="newcourse" element={<NewCourse />} />
+          <Route path="viewstudents" element={<ViewStudents />} />
+          
           <Route index element={<Navigate to="search" replace />} />
         </Route>
 

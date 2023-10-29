@@ -1,15 +1,29 @@
+import { NavLink } from 'react-router-dom';
 import './RightNavbar.css';
 
 export const RightNavbar = () => {
     return (
         <div className="RightNavbar">
             <div className="btnGroup">
-                <br/>
-                <button className='button-1'>Login</button>
-                <button className='button-2'>Enquire</button>
-                <button className='button-2'>Apply Now</button>
+                
+
+                <div className='btnrow'>
+                    <NavLink to="student" >
+                        <button className="button-1">Login</button>
+                    </NavLink>
+                </div>
+                <div className='btnrow'>
+                    <NavLink to="enquire">
+                        <button className="button-2">Enquire</button>
+                    </NavLink>
+                </div>
+                <div className='btnrow'>
+                    <NavLink to="student">
+                        <button className="button-2">Apply Now</button>
+                    </NavLink>
+                </div>
+
             </div>
-            Next item
 
         </div>
     )

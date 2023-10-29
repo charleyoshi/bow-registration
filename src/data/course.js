@@ -6,6 +6,8 @@ export var importantDates = [
     { term: 3, start: "September 1", end: "December 20" },
     { term: 4, start: "January 5", end: "May 2" },
 ]
+export const DEPARTMENTS = ["Software Development", "Business", "Emtertainment"];
+export const PROGRAMS = ["Diploma", "Post-Diploma", "Certificate (3-months)" ,"Certificate (6-months)"]; 
 
 export var allCourses0 = [
     {

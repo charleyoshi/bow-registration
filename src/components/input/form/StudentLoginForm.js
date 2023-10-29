@@ -37,7 +37,7 @@ export default function StudentLoginForm(props) {
       <div className="content">
         <h2>Student Login</h2>
         {showMessageBox ? (
-          <div className="messageBox"> Invalid username or password. </div>
+          <div className="messageBox failure"> Invalid username or password. </div>
         ) : null}
 
         <form onSubmit={handleSubmit} className="form">

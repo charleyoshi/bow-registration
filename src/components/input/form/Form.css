@@ -1,7 +1,11 @@
 /* Variation: 1. Login Form, 2. Register Form, 3. Admin Login Form */
 
 
-.StudentRegisterForm, .AdminLoginForm, .StudentLoginForm, .StudentRegisterForm {
+.StudentRegisterForm,
+.AdminLoginForm,
+.StudentLoginForm,
+.StudentRegisterForm,
+.NewCourseForm  {
     width: 400px;
     margin: 64px auto;
     border: 4px var(--color-4-orange) solid;
@@ -10,7 +14,7 @@
     align-items: center;
     padding: 40px;
     border-radius: 4px;
-    
+
 }
 
 .AdminLoginForm {
@@ -20,6 +24,12 @@
 .StudentLoginForm {
     border: 4px var(--color-3-pale) solid;
 }
+
+.NewCourseForm {
+    border: 4px var(--color-6-copper) solid;
+}
+
+
 
 .content {
     position: relative;
@@ -34,7 +44,7 @@
 }
 
 .content h2 {
-    
+
     font-size: 2em;
     /* background-color: #aaa; */
     color: var(--color-2-blue);
@@ -42,17 +52,17 @@
     width: 100%;
     text-align: left;
 }
+
 .content .messageBox {
-    color:darkred;
-    background-color:pink;
-    border: 2px darkred solid;
+    
     border-radius: 6px;
-    padding: 16px 8px ;
+    padding: 16px 8px;
     width: 100%;
     font-size: small;
 }
+
 .content .form {
-    
+
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -64,7 +74,7 @@
     width: 100%;
 }
 
-.content .form .inputBox input {
+.content .form .inputBox input,.content .form .inputBox select  {
     position: relative;
     width: 100%;
     border: 2px var(--color-2-blue) solid;
@@ -86,9 +96,9 @@
     pointer-events: none;
 }
 
-.content .form .inputBox input:focus~i{
+.content .form .inputBox input:focus~i, .content .form .inputBox select:focus~i {
     transform: translateY(-7.5px);
-    font-size: 0.8em;    
+    font-size: 0.8em;
 }
 
 .content .form .links {
@@ -127,14 +137,42 @@ button:active {
 }
 
 /* Buttons Background-color match border color*/
-.AdminLoginForm .content .form .inputBox button{
+.AdminLoginForm .content .form .inputBox button {
     background-color: dimgray;
 }
 
-.StudentLoginForm .content .form .inputBox button{
+.StudentLoginForm .content .form .inputBox button {
     background-color: var(--color-2-blue);
 }
 
+.NewCourseForm {
+    width: 600px;
+    /* padding: 0; */
+    /* align-items: center; */
+    background-color: antiquewhite;
+    margin: 12px auto;
+    padding: 0;
+
+}
+
+.NewCourseForm .content {
+    width: 80%;
+}
+
+.NewCourseForm .content .form .inputBox button {
+    background-color: var(--color-6-copper);
+}
+.content .success {
+    color: darkgreen;
+    background-color:lightgreen;
+    border: 2px darkgreen solid;
+}
+
+.content .failure {
+    color: darkred;
+    background-color: pink;
+    border: 2px darkred solid;
+}
 @media (max-width: 900px) {
     span {
         width: calc(10vw - 2px);

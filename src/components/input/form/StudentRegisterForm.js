@@ -1,9 +1,9 @@
 import { React, useState } from "react";
 import "./Form.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { DEPARTMENTS, PROGRAMS } from "../../../data/course";
+
 var idIncre = 10001;
 export default function StudentRegisterForm(props) {
-  const navigate = useNavigate();
   const [showMessageBox, setShowMessageBox] = useState(false);
   const [message, setMessage] = useState();
   const [newUser, setNewUser] = useState({
@@ -40,7 +40,7 @@ export default function StudentRegisterForm(props) {
     <div className="StudentRegisterForm">
       <div className="content">
         <h2>Create Account</h2>
-        {showMessageBox ? <div className="messageBox"> {message} </div> : null}
+        {showMessageBox ? <div className="messageBox failure"> {message} </div> : null}
         <form onSubmit={handleSubmit} className="form">
           <div className="inputBox">
             <input
@@ -108,32 +108,31 @@ export default function StudentRegisterForm(props) {
           </div>
           <div className="inputBox">
             <input
-              type="text"
-              value={newUser.dob.year}
+              type="date"
+              value={newUser.dob}
               name="dob"
               onChange={handleChange}
             />{" "}
-            <i>YYYY-MM-DD</i>
+            <i>Date of Birth</i>
           </div>
+
           <div className="inputBox">
-            <input
-              type="text"
-              value={newUser.dob.department}
-              name="department"
-              onChange={handleChange}
-              required
-            />{" "}
+            <select name="department" onChange={handleChange}>
+            <option value="" selected disabled hidden>Please Select</option>
+              {DEPARTMENTS.map((D, i) => (
+                (i !== 0) ?
+                  <option value={D} disabled> {D}</option>
+                  : <option value={D} > {D}</option>
+              ))}
+            </select>
             <i>Department</i>
           </div>
 
           <div className="inputBox">
-            <input
-              type="text"
-              value={newUser.dob.program}
-              name="program"
-              onChange={handleChange}
-              required
-            />{" "}
+            <select name="program" onChange={handleChange}>
+              <option value="" selected disabled hidden>Please Select</option>
+              {PROGRAMS.map((P) => <option value={P} > {P}</option>)}
+            </select>
             <i>Program</i>
           </div>
           <div className="links">
