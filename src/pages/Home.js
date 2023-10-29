@@ -1,7 +1,7 @@
 import { CoursesDisplay } from "../components/course/CoursesDisplay";
 import { allCourses0 } from "../data/course";
 import { RightNavbar } from "../components/layout/RightNavbar";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TopNavbar } from "../components/layout/TopNavbar";
 import { NavLink } from "react-router-dom";
 
@@ -12,6 +12,13 @@ export const Home = () => {
     const term = e.target.name;
     const courses = allCourses.filter((c) => c.term == term);
     setAllCourses(courses);
+  };
+
+  const courseListing = useRef();
+
+  const scrollHandler = (elmRef) => {
+    console.log(elmRef);
+    window.scrollTo({ top: elmRef.current.offsetTop, behavior: "smooth" });
   };
 
   return (
@@ -27,7 +34,12 @@ export const Home = () => {
           while developing your problem-solving skills.
         </div>
         <div className="rows row-3">
-          <button className="button-1">All Offerings</button>
+          <button
+            onClick={() => scrollHandler(courseListing)}
+            className="button-1"
+          >
+            All Offerings
+          </button>
           <NavLink to="/student">
             <button className="button-2">Apply Now</button>
           </NavLink>
@@ -35,7 +47,7 @@ export const Home = () => {
       </header>
 
       <div className="homePageRow">
-        <div className="col col-1">
+        <div ref={courseListing} className="col col-1">
           <CoursesDisplay
             title="Course Listing"
             subtitle="Below are terms' courses."
