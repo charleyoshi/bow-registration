@@ -35,7 +35,7 @@ export default function Main(props) {
               <LeftNavbar className="left" isStudent={true} user={currentUser} />
             </div>
             <div className="col right">
-              <Outlet context={[props.studentUsers, currentUser, props.allCourses, props.enroll, props.enrollments, props.hasEnrolled, props.drop]} />
+              <Outlet context={["student", props.studentUsers, currentUser, props.allCourses, props.enroll, props.enrollments, props.hasEnrolled, props.drop, props.sendEnquiry]} />
             </div>
           </div>
 

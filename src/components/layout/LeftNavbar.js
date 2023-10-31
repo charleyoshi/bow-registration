@@ -17,13 +17,15 @@ export default function LeftNavbar(props) {
                         <NavLink to="search">Search</NavLink>
                         <NavLink to="mycourses">My Courses</NavLink>
                         <NavLink to="addcourses">Add Courses</NavLink>
+                        <NavLink to="enquire">Enquire</NavLink>
                     </> :
-                    <>
-                        {/* <NavLink to="profile">Profile</NavLink> */}
-                        
+                    <>  
                         <NavLink to="search">Search</NavLink>
                         <NavLink to="newcourse">Add New Course</NavLink>
-                        <NavLink to="search">View Students</NavLink>
+                        <NavLink to="viewstudents">View Students</NavLink>
+                        <NavLink to="viewenquiries">View Enquiries</NavLink>
+                        
+                        
                         <NavLink to="/">Logout</NavLink>
                     </>}
             </nav>

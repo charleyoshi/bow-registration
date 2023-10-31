@@ -3,7 +3,8 @@ import { useOutletContext } from 'react-router-dom';
 import EnrollTerm from '../../components/course/Enrollment';
 
 export default function AddCourses() {
-  const [studentUsers, currentUserSID, allCourses, enroll, enrollments, hasEnrolled, drop] = useOutletContext();
+
+  const [isStudent, studentUsers, currentUserSID, allCourses, enroll, enrollments, hasEnrolled, drop] = useOutletContext();
   const [term, setTerm] = useState(1)
 
   

@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import "./Form.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { NavLink, Navigate, useNavigate } from "react-router-dom";
 
 export default function StudentLoginForm(props) {
   const [inputs, setInputs] = useState({ username: "", password: "" });
@@ -23,7 +23,6 @@ export default function StudentLoginForm(props) {
     if (validUser) {
       let { username, ...otherFields } = validUser;
       console.log("student login inputs are valid: ", validUser.studentID);
-
       props.loginUser(validUser.studentID);
       //navigate to student profile page
       // navigate(`/student`, { state: { user: validUser } });
@@ -36,7 +35,7 @@ export default function StudentLoginForm(props) {
       <div className="content">
         <h2>Student Login</h2>
         {showMessageBox ? (
-          <div className="messageBox"> Invalid username or password. </div>
+          <div className="messageBox failure"> Invalid username or password. </div>
         ) : null}
 
         <form onSubmit={handleSubmit} className="form">
@@ -63,7 +62,9 @@ export default function StudentLoginForm(props) {
           </div>
 
           <div className="links">
-            <a href="#">Forgot Password</a>
+            <NavLink to="../enquire">
+              <a  href="#">Forgot Password</a>
+            </NavLink>
           </div>
           <div className="inputBox">
             <button className="submitButton" type="submit">

@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { useOutletContext } from "react-router-dom";
+import { NavLink, useOutletContext } from "react-router-dom";
 
 export default function Profile() {
 
-  const [studentUsers, currentUserSID, allCourses, enroll, enrollments, hasEnrolled, drop]  = useOutletContext();
+  
+  const [isStudent, studentUsers, currentUserSID, allCourses, enroll, enrollments, hasEnrolled, drop] = useOutletContext();
   const [user] = studentUsers.filter(u => u.studentID === currentUserSID)
 
 
@@ -26,7 +27,7 @@ export default function Profile() {
 
       <br /><br /><br /><br /><br /><br /><br />
 
-      <p>If you wish to update your personal information, please contact(TODO) the admin.</p>
+      <p>If you wish to update your personal information, please <NavLink to='../enquire'>contact</NavLink> the admin.</p>
 
 
 

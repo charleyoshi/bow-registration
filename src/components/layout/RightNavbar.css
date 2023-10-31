@@ -6,20 +6,29 @@
 
 
 .btnGroup {
-    /* background-color: lavender; */
-    /* border: 1px darkblue solid; */
+    /* height: 80px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.btnGroup .btnrow {
+    padding: 0;
+    /* margin: 18px auto; */
+    width: 65%;
+    display: flex;
+    flex-direction: column;
 }
 
 
-
-.btnGroup > * {
+.btnGroup>*>* {
     margin: 12px auto;
     width: 100%;
     display: block;
-    
+    align-items: center;
 }
 
-.button-1 , .button-2, .button-3  {
-    margin: 10px auto;
+.RightNavbar .btnGroup button {
+    width: 100%;
+
 }
 

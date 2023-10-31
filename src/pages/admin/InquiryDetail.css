@@ -1,0 +1,24 @@
+.InquiryDetail {
+    border: solid;
+    margin: 24px auto;
+    padding: 12px;
+}
+
+
+.InquiryDetail .section-1 {
+    
+    /* background-color: darkseagreen; */
+    padding: 0 18px;
+}
+
+
+.InquiryDetail .section-1 > *{
+    text-align: left;
+    display: block;
+}
+
+
+.InquiryDetail .section-2{
+    width: 100%;
+    /* background-color: orange; */
+}

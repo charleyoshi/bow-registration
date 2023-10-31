@@ -10,8 +10,11 @@ import AdminMain from "../pages/admin/Main";
 
 import MyCourses from "../pages/student/MyCourses";
 import AddCourses from "../pages/student/AddCourses";
-import Search from "../pages/student/Search";
+import Search from "../pages/Search";
 import NewCourse from "../pages/admin/NewCourse";
+import ViewStudents from "../pages/admin/ViewStudents";
+import Enquire from "../pages/student/Enquire";
+import ViewEnquiries from "../pages/admin/ViewEnquiries";
 
 import StudentInquiryForm from "../pages/admin/Enquire";
 
@@ -19,51 +22,27 @@ export default function Views(props) {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route index path="/" element={<Home allCourses={props.allCourses}/>} />
+        <Route index path="enquire" element={<Enquire sendEnquiry={props.sendEnquiry}/>} />
 
-        <Route path="enquire" element={<StudentInquiryForm />} />
 
-        <Route
-          path="student"
-          element={
-            <StudentMain
-              allCourses={props.allCourses}
-              studentUsers={props.studentUsers}
-              addStudentUser={props.addStudentUser}
-              enroll={props.enroll}
-              enrollments={props.enrollments}
-              hasEnrolled={props.hasEnrolled}
-              drop={props.drop}
-            />
-          }
-        >
+        <Route path="student" element={<StudentMain allCourses={props.allCourses} studentUsers={props.studentUsers} addStudentUser={props.addStudentUser} enroll={props.enroll} enrollments={props.enrollments} hasEnrolled={props.hasEnrolled} drop={props.drop} sendEnquiry={props.sendEnquiry} />}>
           <Route path="profile" element={<Profile />} />
           <Route path="search" element={<Search />} />
           <Route path="mycourses" element={<MyCourses />} />
           <Route path="addcourses" element={<AddCourses />} />
+          <Route path="enquire" element={<Enquire />} />
           <Route index element={<Navigate to="profile" replace />} />
         </Route>
 
-        <Route
-          path="admin"
-          element={
-            <AdminMain
-              addCourse={props.addCourse}
-              allCourses={props.allCourses}
-              studentUsers={props.studentUsers}
-              admins={props.admins}
-            />
-          }
-        >
+        <Route path="admin" element={<AdminMain deleteCourse={props.deleteCourse} addCourse={props.addCourse} allCourses={props.allCourses} studentUsers={props.studentUsers} admins={props.admins} enrollments={props.enrollments} enquiries={props.enquiries} />}>
           <Route path="search" element={<Search />} />
           <Route path="newcourse" element={<NewCourse />} />
+          <Route path="viewstudents" element={<ViewStudents />} />
+          <Route path="viewenquiries" element={<ViewEnquiries />} />
           <Route index element={<Navigate to="search" replace />} />
         </Route>
 
-        {/* <Route
-          path="student/profile/:studentID"
-          element={<Profile />} //   element={<Navigate to="student/profile/:studentID" />}
-        /> */}
       </Routes>
     </>
   );

@@ -5,7 +5,8 @@ import { CoursesDisplay } from "../../components/course/CoursesDisplay";
 
 export default function MyCourses() {
 
-  const [studentUsers, currentUserSID, allCourses, enroll, enrollments, hasEnrolled, drop] = useOutletContext();
+  // const [studentUsers, currentUserSID, allCourses, enroll, enrollments, hasEnrolled, drop] = useOutletContext();
+  const [isStudent, studentUsers, currentUserSID, allCourses, enroll, enrollments, hasEnrolled, drop] = useOutletContext();
   const [user] = studentUsers.filter(u => u.studentID === currentUserSID)
   const [showMessage, setShowMessage] = useState(false)
   const [message, setMessage] = useState()

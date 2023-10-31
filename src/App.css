@@ -90,8 +90,7 @@ body {
 
 .homePageRow .col-2{
   width: 30%;
-  /* border: 1px darkblue solid; */
-  background-color: antiquewhite;
+  border-left: 4px var(--color-4-orange) solid;
 }
 
 @media only screen and (max-width: 768px) {

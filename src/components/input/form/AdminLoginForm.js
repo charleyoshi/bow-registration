@@ -28,7 +28,7 @@ export default function AdminLoginForm({onSubmit, credentials, loginAdmin}) {
             <div className="content" >
 
                 <h2>Admin Login</h2>
-                {showMessageBox ? <div className="messageBox" > Invalid username or password. </div> : null}
+                {showMessageBox ? <div className="messageBox failure" > Invalid username or password. </div> : null}
                 <form onSubmit={handleSubmit} className="form">
                     <div className="inputBox">
                         <input type="text" value={inputs.username} name='username' onChange={handleChange} required /> <i>Username</i>
@@ -37,9 +37,6 @@ export default function AdminLoginForm({onSubmit, credentials, loginAdmin}) {
                         <input type='password' value={inputs.password} name='password' onChange={handleChange} required /> <i>Password</i><br />
                     </div>
 
-                    <div className="links">
-                        <a href="#">Forgot Password</a>
-                    </div>
                     <div className="inputBox">
                         <button className="submitButton" type='submit'>Login</button>
                     </div>

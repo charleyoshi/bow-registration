@@ -1,11 +1,9 @@
 import { React, useState } from "react";
 import "./Form.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { DEPARTMENTS, PROGRAMS } from "../../../data/data";
+
 var idIncre = 10001;
 export default function StudentRegisterForm(props) {
-  const depertments = ["Software Development", "Business", "Emtertainment"];
-  const programs = ["Diploma", "Post-Diploma", "Certificate"];
-  const navigate = useNavigate();
   const [showMessageBox, setShowMessageBox] = useState(false);
   const [message, setMessage] = useState();
   const [newUser, setNewUser] = useState({
@@ -53,7 +51,7 @@ export default function StudentRegisterForm(props) {
     <div className="StudentRegisterForm">
       <div className="content">
         <h2>Create Account</h2>
-        {showMessageBox ? <div className="messageBox"> {message} </div> : null}
+        {showMessageBox ? <div className="messageBox failure"> {message} </div> : null}
         <form onSubmit={handleSubmit} className="form">
           <div className="inputBox">
             <input
@@ -122,26 +120,24 @@ export default function StudentRegisterForm(props) {
           <div className="inputBox">
             <input
               type="date"
-              value={newUser.dob.year}
+              value={newUser.dob}
               name="dob"
               onChange={handleChange}
             />{" "}
-            <i>Date Of Birth</i>
+            <i>Date of Birth</i>
           </div>
-          <p className="dropdown">Department</p>
+
           <div className="inputBox">
-            <select
-              className="inputBox"
-              type="text"
-              value={newUser.dob.department}
-              name="department"
-              onChange={handleDepartmentChange}
-              required
-            >
-              {depertments.map((department) => (
-                <option value={department}> {department}</option>
+            <select name="department" onChange={handleChange} value={newUser.department}>
+              <option value="" disabled hidden>Please Select</option>
+              {DEPARTMENTS.map((D, i) => (
+                (i !== 0) ?
+                  <option key={D} value={D} disabled> {D}</option>
+                  : <option key={D} value={D} > {D}</option>
               ))}
             </select>
+            <i>Department</i>
+>>>>>>> 58838e1aa86b4b0a9d872499a0b437fa797e5319
           </div>
           <p className="dropdown">Program</p>
           <div className="inputBox">
@@ -158,9 +154,7 @@ export default function StudentRegisterForm(props) {
               ))}
             </select>
           </div>
-          <div className="links">
-            <a href="#">Forgot Password</a>
-          </div>
+          
           <div className="inputBox">
             <button className="submitButton" type="submit">
               Create Account
