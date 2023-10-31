@@ -14,8 +14,8 @@ export default function StudentRegisterForm(props) {
     confirmPassword: "",
     email: "",
     dob: "",
-    department: depertments[0],
-    program: programs[0],
+    department: "",
+    program: "",
     studentID: idIncre,
   });
   const handleChange = (e) => {
@@ -30,23 +30,12 @@ export default function StudentRegisterForm(props) {
     if (check.success) {
       setNewUser({ ...newUser, studentID: (idIncre += 1) });
       props.addStudentUser(newUser);
-      props.loginUser(newUser.studentID);
+      props.loginUser(newUser.studentID)
     } else {
       setShowMessageBox(true);
       setMessage(check.message);
     }
   };
-
-  const handleDepartmentChange = (e) => {
-    const key = e.target.name;
-    const value = e.target.value;
-    setNewUser({ ...newUser, [key]: value });
-  };
-
-  const handleProgramChange = (e) => {
-    setNewUser({ ...newUser, program: e.target.value });
-  };
-
   return (
     <div className="StudentRegisterForm">
       <div className="content">
@@ -137,22 +126,14 @@ export default function StudentRegisterForm(props) {
               ))}
             </select>
             <i>Department</i>
->>>>>>> 58838e1aa86b4b0a9d872499a0b437fa797e5319
           </div>
-          <p className="dropdown">Program</p>
+
           <div className="inputBox">
-            <select
-              className="inputBox"
-              type="text"
-              value={newUser.dob.program}
-              name="program"
-              onChange={handleProgramChange}
-              required
-            >
-              {programs.map((program) => (
-                <option value={program}> {program}</option>
-              ))}
+            <select name="program" onChange={handleChange} value={newUser.program}>
+              <option value="" disabled hidden>Please Select</option>
+              {PROGRAMS.map((P) => <option key={P} value={P} > {P}</option>)}
             </select>
+            <i>Program</i>
           </div>
           
           <div className="inputBox">

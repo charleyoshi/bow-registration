@@ -3,6 +3,7 @@ import "./Form.css";
 import { NavLink, Navigate, useNavigate } from "react-router-dom";
 
 export default function StudentLoginForm(props) {
+
   const [inputs, setInputs] = useState({ username: "", password: "" });
   const [showMessageBox, setShowMessageBox] = useState(false);
 
@@ -23,7 +24,8 @@ export default function StudentLoginForm(props) {
     if (validUser) {
       let { username, ...otherFields } = validUser;
       console.log("student login inputs are valid: ", validUser.studentID);
-      props.loginUser(validUser.studentID);
+
+      props.loginUser(validUser.studentID)
       //navigate to student profile page
       // navigate(`/student`, { state: { user: validUser } });
     } else {
