@@ -1,18 +1,10 @@
 import { CoursesDisplay } from '../components/course/CoursesDisplay';
-import { allCourses0 } from '../data/data'
 import { RightNavbar } from '../components/layout/RightNavbar';
 import { useEffect, useRef, useState } from 'react';
 import { TopNavbar } from '../components/layout/TopNavbar';
 import { NavLink } from 'react-router-dom';
 
-export const Home = () => {
-    const [allCourses, setAllCourses] = useState(allCourses0)
-
-    const handleClick = (e) => {
-        const term = e.target.name
-        const courses = allCourses.filter(c => c.term == term)
-        setAllCourses(courses)
-    }
+export const Home = (props) => {
     const courseListing = useRef();
 
     const scrollHandler = (elmRef) => {
@@ -42,7 +34,7 @@ export const Home = () => {
 
             <div className="homePageRow">
                 <div ref={courseListing} className="col col-1">
-                    <CoursesDisplay title="Course Listing" subtitle="Below are terms' courses." courses={allCourses} emptyMsg="No results have been found." />
+                    <CoursesDisplay title="Course Listing" subtitle="Below are terms' courses." courses={props.allCourses} emptyMsg="No results have been found." />
                 </div>
                 <div className="col col-2">
                     <RightNavbar />

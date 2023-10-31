@@ -22,7 +22,7 @@ export default function Views(props) {
   return (
     <>
       <Routes>
-        <Route index path="/" element={<Home />} />
+        <Route index path="/" element={<Home allCourses={props.allCourses}/>} />
         <Route index path="enquire" element={<Enquire sendEnquiry={props.sendEnquiry}/>} />
 
         <Route path="student" element={<StudentMain allCourses={props.allCourses} studentUsers={props.studentUsers} addStudentUser={props.addStudentUser} enroll={props.enroll} enrollments={props.enrollments} hasEnrolled={props.hasEnrolled} drop={props.drop} sendEnquiry={props.sendEnquiry} />}>

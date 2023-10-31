@@ -21,10 +21,15 @@ function App() {
   }
 
   const deleteCourse = (courseCode) => {
+    try {
+      setAllCourses(allCourses.filter(c => c.courseCode !== courseCode))
+      return { success: true, message: "You have successfully deleted this course." }
+    } catch (e) {
+      return { success: false, message: "Something was wrong: " + e.message }
+    }
 
-    setAllCourses(allCourses.filter(c => c.courseCode !== courseCode))
 
-    return allCourses.length
+
   }
 
   const addStudentUser = (newUser) => {
@@ -50,7 +55,7 @@ function App() {
       return { status: "fail", message: "You have enrolled maximum number of courses. If you want to register for this course, you must drop other courses first." }
     }
     setEnrollments([...enrollments, newEnrollment])
-    return { status: "sucess", message: "Register successful!" }
+    return { status: "success", message: "Register successful!" }
 
 
   }
@@ -72,7 +77,7 @@ function App() {
     if (alreadyEnrolledIn.length <= minimum) {
       return { status: "warning", message: "Warning: You are currently under-credit. Please make sure you take enough credits for graduation requirement." }
     }
-    return { status: "sucess", message: "You have dropped the course successfully." }
+    return { status: "success", message: "You have dropped the course successfully." }
   }
 
   const hasEnrolled = (studentID, course) => {
@@ -97,7 +102,7 @@ function App() {
     <BrowserRouter>
       <Views addCourse={addCourse} admins={admins} allCourses={allCourses} studentUsers={studentUsers} addStudentUser={addStudentUser} enroll={enroll} enrollments={enrollments} hasEnrolled={hasEnrolled} drop={drop} deleteCourse={deleteCourse} sendEnquiry={sendEnquiry} enquiries={enquiries} />
 
-      <Footer/>
+      <Footer />
 
     </BrowserRouter>
 
@@ -107,8 +112,3 @@ function App() {
 export default App;
 
 
-
-// User Authen and Router :
-//   Todo: research on auth and user and routing
-//   should i use other people's library
-//   do i have to build my own

@@ -17,7 +17,7 @@ export default function StudentProfile(props) {
         <div className="StudentProfile">
             <div className='personal'>
 
-                <h1 className='header' onClick={handleExpand}> {student.lastName} {student.firstName} , {student.studentID}</h1>
+                <h1 className='header' onClick={handleExpand}> {student.firstName} {student.lastName}, {student.studentID}</h1>
                 <br />
                 <h3 > Department: {student.department}</h3>
                 <h4> Email: {student.email}</h4>

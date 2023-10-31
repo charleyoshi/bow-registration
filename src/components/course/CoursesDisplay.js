@@ -35,7 +35,6 @@ export const CoursesDisplay = (props) => {
     )
 }
 
-// todo: delete all enrolls here
 
 export const Term = (props) => {
     return (
@@ -68,6 +67,9 @@ const CourseList = (props) => {
 
 export const CourseListItem = (props) => {
     const [open, setOpen] = useState(false)
+    const [showMessageBox, setShowMessageBox] = useState(false)
+    const [message, setMessage] = useState("")
+    const [msgBoxClass, setMsgBoxClass] = useState("success");
     const handleDrop = () => {
         var result = props.drop(props.SID, props.course)
         props.showDropResult(result)
@@ -76,7 +78,14 @@ export const CourseListItem = (props) => {
     const handleDelete = () => {
 
         var result = props.deleteCourse(props.course.courseCode)
-        console.log('result: ', result)
+
+        if (result.success) {
+            setMsgBoxClass("success")
+        } else {
+            setMsgBoxClass("failure")
+        }
+        setMessage(result.message)
+        setShowMessageBox(true)
     }
 
     return (
@@ -102,10 +111,11 @@ export const CourseListItem = (props) => {
                             <div className="buttonRow">
                                 <button className="button-3" onClick={handleDrop} > Drop </button>
                             </div> : null}
-                        {props.forAdmim ?
+                        {props.forAdmim && !showMessageBox?
                             <div className="buttonRow">
                                 <button className="button-3" onClick={handleDelete} > Delete </button>
                             </div> : null}
+                        {showMessageBox ? <div className={`content messageBox ${msgBoxClass}`}> {message} </div> : null}
 
 
                     </div>

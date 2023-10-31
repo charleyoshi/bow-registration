@@ -136,6 +136,33 @@ export var allCourses0 = [
         courseFee: 1867.60,
         courseDescription: "This course teaches how to manage an advanced project."
     },
+    {
+        term: 4,
+        courseCode: "New0000",
+        courseName: "New Course Name",
+        startDate: "2023-10-01",
+        endDate: "2023-10-28",
+        courseFee: 100,
+        courseDescription: "Description"
+    },
+    {
+        term: 4,
+        courseCode: "pr1112",
+        courseName: "Project New Course",
+        startDate: "2023-10-14",
+        endDate: "2023-10-14",
+        courseFee: 100,
+        courseDescription: "Description"
+    },
+    {
+        term: 3,
+        courseCode: "New333",
+        courseName: "Term 3 New",
+        startDate: "2023-10-07",
+        endDate: "2023-10-13",
+        courseFee: 100,
+        courseDescription: "Description"
+    },
 ]
 
 
@@ -175,22 +202,35 @@ export const studentUsers0 = [{
     firstName: "Ben", lastName: "Wyatt", password: "ben", username: "ben", confirmPassword: "",
     email: "benwyatt@school.com", dob: "1989-2-19", department: "Software Development", program: "Certificate (3-months)", studentID: 9993
 },
+{
+    firstName: "Donna", lastName: "Meagle", password: "donna", username: "donna", confirmPassword: "",
+    email: "donna@school.com", dob: "2023-10-17", department: "Software Development", program: "Certificate (6-months)", studentID: 10001
+},
+{
+    firstName: "Donna", lastName: "Meagle", password: "donna", username: "donna2", confirmPassword: "",
+    email: "donna@school.com", dob: "2023-10-13", department: "Software Development", program: "Diploma", studentID: 10002
+},
 ]
 
 export const admins = [{ username: "adminJerry", password: "adM1n" }, { username: "adminBadboy", password: "adM!n" }]
 
 export const enrollments0 = [
-    { studentID: 9998, term: 1, courseCode: "Pr111" }, 
+    { studentID: 9998, term: 1, courseCode: "IS1111" }, 
     { studentID: 9998, term: 1, courseCode: "C++111" }, 
     { studentID: 9998, term: 4, courseCode: "Pro444" },
+    { studentID: 9998, term: 3, courseCode: "Pr333" },
+    { studentID: 9998, term: 3, courseCode: "C++333" },
+    { studentID: 9998, term: 3, courseCode: "CompM333" },
+    { studentID: 9998, term: 3, courseCode: "IS333" },
+    { studentID: 9998, term: 3, courseCode: "New333" },
+    { studentID: 10001, term: 4, courseCode: "Web444" },
 ]
 
 
 export const enquiries0 = [
-    {studentID: '9998', subject: 'Hi', message: 'hi', phone: '432'},
-    {studentID: '9996', subject: '2', message: '3', phone: '4'},
-    {studentID: '9998', subject: '2', message: '3', phone: '4'},
-    {studentID: '2000', subject: '2', message: '3', phone: '4'},
+    {studentID: '10001', subject: 'Hi From Donna', message: 'hello', phone: '1234'},
+    {studentID: '', subject: 'Hi From Guest', message: 'I want to know more about the school.', phone: '2222'},
+    {studentID: '9998', subject: 'Hi Im Tom', message: 'Hiiii', phone: '55555'},
     
     
 ]
