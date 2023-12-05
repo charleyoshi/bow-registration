@@ -57,4 +57,9 @@ enrollmentSchema.statics.getEnrollment = async function (studentID) {
   return enrollment;
 };
 
+enrollmentSchema.statics.getAllEnrollment = async function () {
+  const enrollment = await this.find();
+  return enrollment;
+};
+
 export default mongoose.model("Enrollment", enrollmentSchema);

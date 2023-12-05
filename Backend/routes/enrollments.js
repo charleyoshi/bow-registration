@@ -52,4 +52,13 @@ router.get("/:studentID", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const enrollment = await Enrollment.getAllEnrollment();
+    res.status(200).json(enrollment);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+});
+
 export default router;

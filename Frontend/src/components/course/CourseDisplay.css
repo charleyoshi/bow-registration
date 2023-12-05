@@ -1,0 +1,95 @@
+.CourseDisplay {
+    /* background-color: silver; */
+    padding: 28px 26px;
+}
+
+.CourseDisplay .title {
+    font-family: var(--font-roboto);
+    text-align: left;
+    font-size: xx-large;
+    color: var(--color-1-navy);
+}
+
+.CourseDisplay .subtitle {
+    font-family: var(--font-roboto);
+    color: var(--color-1-navy);
+    text-align: left;
+    font-size: small;
+}
+
+
+
+
+
+.Term {
+    background-color: var(--color-1-navy);
+    width: 100%;
+    margin: 36px auto;
+    font-family: var(--font-roboto);
+}
+
+.Term .termNumber {
+    color: white;
+    padding: 18px;
+    font-size: larger;
+}
+
+
+
+
+.CourseList {
+    padding: 16px 0;
+    background-color: white;
+}
+
+
+
+
+.CourseListItem {
+    width: 100%;
+    padding: 4px 8px;
+    margin: 8px auto;
+    border: 2px var(--color-2-blue) solid;
+
+}
+
+.CourseListItem *  {
+    text-align: left;
+}
+
+.courseName {
+    display: block;
+    font-weight: bold;
+    padding: 8px 12px;
+    margin: auto;
+    color: var(--color-6-copper);
+    cursor: pointer;
+    transition: all 0.25s ease-out;
+}
+
+
+.courseName:hover {
+    color: var(--color-1-navy);
+}
+
+
+
+.toggle:checked+.lbl-toggle::before {
+    transform: rotate(90deg) translateX(-3px);
+}
+
+.collapsible-content {
+    overflow: hidden;
+    transition: max-height .25s ease-in-out;
+}
+
+
+.collapsible-content .content-inner {
+    /* background: var(--color-3-pale); */
+    font-family: var(--font-raleway);
+    color: var(--color-2-blue);
+    border-radius: 4px;
+    padding: 12px;
+    line-height: 2em;
+    
+}

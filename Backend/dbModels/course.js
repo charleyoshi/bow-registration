@@ -28,4 +28,19 @@ courseSchema.statics.removeCourse = async function (courseCode) {
   return course;
 };
 
+courseSchema.statics.getCourseByTerm = async function (term) {
+  const course = await this.find({ term });
+
+  if (!course) {
+    throw Error("Enquiry not found.");
+  }
+
+  return course;
+};
+
+courseSchema.statics.getAllCourses = async function () {
+  const course = await this.find();
+  return course;
+};
+
 export default mongoose.model("Course", courseSchema);

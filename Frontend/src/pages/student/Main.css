@@ -1,0 +1,34 @@
+.wrapper {
+    display: table;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 660px;
+}
+
+
+
+
+.col {
+    display: table-cell;
+    padding: 0;
+
+}
+
+.wrapper .left {
+    background-color: var(--color-3-pale);
+    width: 28%;
+    padding: 0px;
+}
+
+
+
+.wrapper .right {
+    background-color: white;
+    padding-left: 36px;
+    padding-right: 36px;
+}
+
+.dropPageMessage {
+    font-size: larger;
+    padding: 28px;
+}

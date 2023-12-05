@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const enquirySchema = new mongoose.Schema(
   {
-    studentID: { type: Number, required: true },
+    studentID: { type: Number },
     subject: { type: String, required: true },
     message: { type: String, required: true },
     phone: { type: String, required: true },
@@ -18,7 +18,7 @@ enquirySchema.statics.addEnquiry = async function (enquiryData) {
 
   if (!subject || !message || !phone) throw Error("Missing enquiry data.");
 
-  const existingEnquiry = await this.findOne({ studentID, subject, phone });
+  const existingEnquiry = await this.findOne({ subject, phone });
 
   if (existingEnquiry) {
     throw Error("Enquiry already exists.");
