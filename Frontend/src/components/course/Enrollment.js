@@ -70,13 +70,16 @@ const EnrollListItem = ({
           setMessage("Success");
         } else {
           //console.log("student not enrolled in course: ");
-          setShowMessage(true);
-          setMessageColor("red");
-          setMessage("failure");
+          // setShowMessage(true);
+          // setMessageColor("red");
+          // setMessage("failure");
         }
       })
       .catch(function (error) {
-        console.log(error);
+        //console.log(error);
+        setShowMessage(true);
+        setMessageColor("red");
+        setMessage("You have Already Enrolled in this Course");
         return error;
       });
   };

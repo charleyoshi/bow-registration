@@ -11,7 +11,7 @@ export default function StudentProfile(props) {
   const [students, setStudents] = useState([]);
   const [courses, setCourses] = useState([]);
   const [showDetail, setShowDetail] = useState(false);
-
+  //const courseByUsewr = [];
   useEffect(() => {
     axios
       .get("/api/enrollments")
@@ -60,16 +60,35 @@ export default function StudentProfile(props) {
   // const enrollmentsByUser = enrollments.filter(
   //   (e) => e.studentID == students.studentID
   // );
+  // console.log("enrollmentsByUser", enrollmentsByUser);
+  // console.log("students", students);
+  // console.log("enrollments", enrollments);
+  // console.log("courses", courses);
 
-  const enrollmentsByUser = enrollments.filter(
-    (e) => e.studentID === students.studentID
-  );
+  // const coursesByUser = courses.filter((o) =>
+  //   enrollmentsByUser.some(({ courseCode }) => o.courseCode === courseCode)
+  // );
 
-  // {studentID: 10000, term: 1, courseCode: 'C++'}
-  const coursesByUser = courses.filter((o) =>
-    enrollmentsByUser.some(({ courseCode }) => o.courseCode === courseCode)
-  );
-  //console.log("coursesByUser", coursesByUser);
+  // const getCoursesByUser = (students, enrollments, courses) => {
+  //   const coursesByUser = [];
+  //   for (let i = 0; i < students.length; i++) {
+  //     const student = students[i];
+  //     const enrollmentsByUser = enrollments.filter(
+  //       (e) => e.studentID == student.studentID
+  //     );
+  //     const coursesByUser = courses.filter((o) =>
+  //       enrollmentsByUser.some(({ courseCode }) => o.courseCode === courseCode)
+  //     );
+  //     coursesByUser.push(coursesByUser);
+  //   }
+  //   return coursesByUser;
+  // };
+
+  // const coursesByUser = getCoursesByUser(students, enrollments, courses);
+
+  // console.log("coursesByUser", coursesByUser);
+
+  // console.log("coursesByUser", coursesByUser);
   const handleExpand = () => {
     setShowDetail(!showDetail);
   };
@@ -85,19 +104,19 @@ export default function StudentProfile(props) {
         <h3> Department: {student.department}</h3>
         <h4> Email: {student.email}</h4>
       </div>
-      <div className="courses">
+      {/* <div className="courses">
         {showDetail ? (
           <>
             <h2>Enrolled Courses</h2>
             <br />
             <CoursesDisplay
               forAdmin={false}
-              courses={coursesByUser}
+              //courses={coursesByUser}
               emptyMsg="No matched results."
             />
           </>
         ) : null}
-      </div>
+      </div> */}
     </div>
   );
 }
